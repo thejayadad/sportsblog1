@@ -3,7 +3,7 @@ import React from 'react';
 
 const Card = () => {
   return (
-    <div className="h-full border-2 border-primary border-opacity-60 overflow-hidden">
+    <div className="h-full border-2 border-black border-opacity-60 overflow-hidden">
       <img className="lg:h-96 md:h-36 w-full object-cover object-center" src="https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="blog" />
       <div className="p-6">
         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
