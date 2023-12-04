@@ -2,17 +2,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { FaUser } from 'react-icons/fa';
+import { signOut, useSession } from 'next-auth/react';
 
 const AuthLinks = () => {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
   const timeoutRef = useRef();
+  const { data: session } = useSession();
 
   const showTooltip = () => {
     setTooltipVisible(true);
   };
 
   const hideTooltip = () => {
-    // Use a timeout to delay hiding the tooltip
     timeoutRef.current = setTimeout(() => {
       setTooltipVisible(false);
     }, 1000); // Adjust the delay time as needed (500 milliseconds in this example)
@@ -37,17 +38,39 @@ const AuthLinks = () => {
         onMouseLeave={hideTooltip}
         onMouseOver={clearHideTimeout}
       >
-        <FaUser size={30} className='text-black' />
+        <FaUser size={30} className="text-black" />
       </div>
 
       {isTooltipVisible && (
-        <div className="absolute top-10 right-0 bg-white shadow-md rounded p-2 text-gray-700">
-          <Link href="/login">
-            <span className="block p-1 hover:text-blue-500 transition duration-300">Login</span>
-          </Link>
-          <Link href="/register">
-            <span className="block p-1 hover:text-blue-500 transition duration-300">Register</span>
-          </Link>
+        <div className="absolute top-10 left-0 bg-white shadow-md rounded p-2 text-gray-700">
+          {session ? (
+            <>
+              <Link href="/profile">
+                <span className="block p-1 hover:text-blue-500 transition duration-300">
+                  Profile
+                </span>
+              </Link>
+              <span
+                className="block p-1 hover:text-blue-500 transition duration-300"
+                onClick={() => signOut()}
+              >
+                Logout
+              </span>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <span className="block p-1 hover:text-blue-500 transition duration-300">
+                  Login
+                </span>
+              </Link>
+              <Link href="/register">
+                <span className="block p-1 hover:text-blue-500 transition duration-300">
+                  Register
+                </span>
+              </Link>
+            </>
+          )}
         </div>
       )}
     </div>
