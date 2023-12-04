@@ -3,7 +3,9 @@ import React from 'react'
 
 const CardMenu = () => {
   return (
-    <div>CardMenu</div>
+    <section className='px-4 py-8'>
+        <h4 className='font-light'>Most Replayed Plays</h4>
+    </section>
   )
 }
 

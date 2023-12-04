@@ -9,10 +9,10 @@ export default function Home() {
       <Hero />
       <CategoryList />
       <div className='grid grid-cols-1 md:grid md:grid-cols-8 gap-4 max-w-screen-xl mx-auto'>
-        <div className='md:col-span-6 bg-orange-300 sm:col-span-1'>
+        <div className='md:col-span-5 sm:col-span-1'>
         <CardList />
         </div>
-        <div className='md:col-span-2 bg-red-200 sm:col-span-1'>
+        <div className='md:col-span-3 sm:col-span-1'>
         <CardMenu />
         </div>
       </div>
