@@ -16,7 +16,7 @@ const AuthLinks = () => {
   const hideTooltip = () => {
     timeoutRef.current = setTimeout(() => {
       setTooltipVisible(false);
-    }, 1000); // Adjust the delay time as needed (500 milliseconds in this example)
+    }, 1000000); 
   };
 
   const clearHideTimeout = () => {
